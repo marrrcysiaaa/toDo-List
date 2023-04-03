@@ -25,7 +25,7 @@ const prepareDOMEvents = () => {
 
 /*
 
-FUNKCJA :
+FUNKCJA addNewTodo:
 1. tworzy nowy element (li)
 2. dodawaje nowy element do ul listy
 3. odpalana ma być w przycisku ADD
@@ -36,9 +36,11 @@ FUNKCJA :
 
 const addNewTodo = () => {
 	if (todoInput.value !== '') {
-		newTodo = document.createElement('li')
-		newTodo.textContent = todoInput.value
-		ulList.append(newTodo)
+		newTodo = document.createElement('li') // tworzymy li
+		newTodo.textContent = todoInput.value  // uzupełniamy tekst content
+		ulList.append(newTodo) // dodajemy text content do naszej ul listy
+
+        createToolsArea()  // tworzymy nasze narzedzia
 
 		todoInput.value = ''
 		errorInfo.textContent = ''
@@ -46,6 +48,34 @@ const addNewTodo = () => {
 		errorInfo.textContent = 'Wpisz treść zadania!'
 	}
 }
+
+/* FUNKCJA createToolsArea :
+
+1. Stworzyć diva z klasa tools
+2. stworzyć trzy przyciskji dodac im odpowiednie klasy i treść
+
+*/
+
+const createToolsArea = () => {
+    const toolsPanel = document.createElement("div")
+    toolsPanel.classList.add("tools")
+    newTodo.append(toolsPanel)
+
+    const completeBtn = document.createElement("button")
+    completeBtn.classList.add("complete")
+    completeBtn.innerHTML = "<i class="fas fa-check"></i>"
+
+    const editBtn = document.createElement("button")
+    editBtn.classList.add("edit")
+    editBtn.textContent("EDIT")
+
+    const deleteBtn = document.createElement("button")
+    deleteBtn.classList.add("delete")
+    deleteBtn.innerHTML = "<i class="fas fa-times;"></i>"
+
+    toolsPanel.append(completeBtn, editBtn, deleteBtn)
+}
+
 
 document.addEventListener('DOMContentLoaded', main)
 // jezeli cały nasz dokument, cały nasz DOM zostanie załadowany, odpal funkcję main, wtedy funkcja main pobierze wszystkie nasze elementy i podepnie nasłuchiwanie
