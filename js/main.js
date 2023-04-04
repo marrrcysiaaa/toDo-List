@@ -63,7 +63,7 @@ const createToolsArea = () => {
 
     const completeBtn = document.createElement("button")
     completeBtn.classList.add("complete")
-    completeBtn.innerHTML = "<i class="fas fa-check"></i>"
+    completeBtn.innerHTML = '<i class="fas fa-check;"></i>'
 
     const editBtn = document.createElement("button")
     editBtn.classList.add("edit")
@@ -71,7 +71,7 @@ const createToolsArea = () => {
 
     const deleteBtn = document.createElement("button")
     deleteBtn.classList.add("delete")
-    deleteBtn.innerHTML = "<i class="fas fa-times;"></i>"
+    deleteBtn.innerHTML = '<i class="fas fa-times"></i>'
 
     toolsPanel.append(completeBtn, editBtn, deleteBtn)
 }
